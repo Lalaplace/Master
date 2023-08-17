@@ -9,4 +9,4 @@ Motivation.xlsx is a statistical table of motivation factors, including "Intirns
 
 Participant.xlsx contains the rewards that the participant received.
 
-Fitness Background Investigation1.xlsx is the general questionnaire.
+Fitness Background Investigation1.xlsx is the all questionnaire.
