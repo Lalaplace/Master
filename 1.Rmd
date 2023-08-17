@@ -15,7 +15,7 @@ data_all <- inner_join(FB, Pa, by = "Code")
 ```
 
 ```{r} 
-#动机
+#Motivation
 Mo1 <- Mo_total[, c(30,22,23,24,25,26)]
 Mo1 = na.omit(Mo1)
 describe(Mo1)
@@ -23,7 +23,7 @@ describe(Mo1)
 
 
 ```{r}
-#动机相关性分析
+#Correlation Analysis for Motivation
 cor1 = corr.test(Mo1)
 cor1
 lowerMat(cor1$r, digits = 4)
@@ -31,7 +31,7 @@ lowerMat(cor1$p, digits = 4)
 ```
 
 ```{r}
-#动机多元回归
+#Multiple Regression for Motivation
 model1 <- lm(Earn.from.app~Intirnsic.Motivation+Integrated.Regulation+Identified.Regulation+External.Regulation+Introjected.Regulation, data = Mo1)
 model1
 summary(model1)
@@ -39,12 +39,12 @@ summary(model1)
 
 
 ```{r}
-#其他因素
+#Other factors
 OF <- data_all[, c(36, 10, 18, 23, 27, 32)]
 ```
 
 ```{r}
-#其他因素相关性分析
+#Correlation Analysis for Other factors
 cor2 = corr.test(OF)
 cor2
 lowerMat(cor2$r, digits = 4)
@@ -52,12 +52,14 @@ lowerMat(cor2$p, digits = 4)
 ```
 
 ```{r}
+#Multiple Regression for Other factors
 model2 <- lm(Earn.from.app~health.awareness+Health.Information.Gathering.Skills+Objective.barriers+Knowledge.of.the.benefits.of.exercise+s, data = OF)
 model2
 summary(model2)
 ```
 
 ```{r}
+#Correlation Analysis between Motivation and Other factors
 data1 <- inner_join(data_all, Mo, by = "Code")
 data2 <- data1[, c(10, 18, 23, 27, 32, 59, 60, 61, 62, 63)]
 cor3 <- corr.test(data2)
